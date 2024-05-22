@@ -9,6 +9,8 @@ import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 import { CoreModule } from './core/core.module';
 import { ShopModule } from './shop/shop.module';
 import { ShopComponent } from './shop/shop.component';
+import { HomeModule } from './home/home.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { ShopComponent } from './shop/shop.component';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-    ShopModule
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

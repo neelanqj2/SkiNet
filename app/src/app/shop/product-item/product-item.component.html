@@ -9,10 +9,11 @@
         <span class="mb-2">{{product.price | currency}}</span>
       </div>
       <div class="btn-group mt-auto">
-        <button class="btn btn-outline-secondary">
-          <i class="fa fa-shopping-cart text-dark"></i>
+        <button class="btn btn-primary">
+          <i class="fa fa-shopping-cart me-2"></i>
         </button>
-        <button class="btn btn-outline-secondary">View</button>
+        <a [routerLink]="['/shop', product.id]">
+        <Button class="btn btn-outline-secondary">View</Button></a>
       </div>
     </a>
   </div>
