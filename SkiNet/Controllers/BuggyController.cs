@@ -4,7 +4,7 @@ using SkiNet.Errors;
 
 namespace SkiNet.Controllers
 {
-    public class BuggyController : Controller
+    public class BuggyController : BaseApiController
     {
         private readonly StoreContext _context;
 
@@ -24,7 +24,14 @@ namespace SkiNet.Controllers
         }
 
         [HttpGet("servererror")]
-        public ActionResult GetServerErrorRequest() { return Ok(); }
+        public ActionResult GetServerErrorRequest()
+        {
+            var thing = _context.Products.Find(42);
+
+            var thingToReturn = thing.ToString();
+
+            return Ok(); 
+        }
 
         [HttpGet("badrequest")]
         public ActionResult GetBadRequest() {
