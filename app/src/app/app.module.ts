@@ -13,6 +13,9 @@ import { HomeModule } from './home/home.module';
 import { RouterModule } from '@angular/router';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import {BreadcrumbComponent, BreadcrumbItemDirective, BreadcrumbModule} from 'xng-breadcrumb';
+import { loadingInterceptor } from './core/interceptors/loading.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -28,11 +31,11 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
-    }), // ToastrModule added
+    }) // ToastrModule added
   ],
   providers: [
     provideHttpClient(
-      withInterceptors([errorInterceptor])
+      withInterceptors([errorInterceptor, loadingInterceptor])
     )],
   bootstrap: [AppComponent]
 })
