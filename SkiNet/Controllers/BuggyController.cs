@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SkiNet.Errors;
 
@@ -13,13 +14,16 @@ namespace SkiNet.Controllers
             _context = context;
         }
 
+        [HttpGet("testauth")]
+        [Authorize]
+        public ActionResult<string> GetSecretText()
+        {
+            return "Secret stuff";
+        }
+
         [HttpGet("notfound")]
         public ActionResult GetNotFoundRequest() { 
             
-            if(false)
-            {
-                return NotFound(new ApiResponse(404));
-            }
             return Ok(); 
         }
 
